@@ -18,6 +18,7 @@
 
     {{-- JavaScript --}}
     <script src="/js/main.js"></script>
+    <script src="/js/forms.js"></script>
 
     <title>SisLoja - Organize suas vendas</title>
 </head>

@@ -77,7 +77,7 @@ class MovimentoController extends Controller
 
     public function store(Movimento $movimentos, Request $request)
     {
-
+        
         $movimentos->data = $request['data'];
         $movimentos->tipo = $request['tipo'];
         $movimentos->conta_id = $request['conta_id'];
@@ -99,7 +99,7 @@ class MovimentoController extends Controller
         $centros = Centro::all();
         $contas  = Conta::all();
 
-    return view('movimentos.index', compact('movimentos','contas','centros','fluxos'));
+    return view('caixas.index', compact('movimentos','contas','centros','fluxos'));
     }
 
     public function destroy(Request $request)

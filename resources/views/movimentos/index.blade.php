@@ -143,6 +143,11 @@
                                 </td>
                                 <td>
                                     <strong>{{ $item->valor }}</strong>
+                                   
+                                    @if ($item->destacar)
+                                    <strong class="form-icons-important">[!]</strong>
+                                     {{--  <i class='bx bx-sm bx-left-arrow-circle form-icons-important'></i> --}}
+                                 @endif
                                 </td>
 
 

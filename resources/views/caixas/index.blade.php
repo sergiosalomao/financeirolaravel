@@ -4,7 +4,7 @@
 
     <div class="card painel">
         <div class="card-header titulo-form">
-            Caixa
+            Movimento Caixa - Lançamentos
         </div>
 
         <div class="card-body">
@@ -102,6 +102,7 @@
                             <th>Tipo</th>
                             <th>Valor</th>
                             <th>Saldo</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -133,10 +134,19 @@
                                 <td>
                                     {{ $item->valor }}
                                 </td>
-                                <td>
+                                <td colspan="2">
                                     <strong>{{ $item->saldo }}</strong>
-                                 
+
+                                    @if ($item->destacar)
+                                   <strong class="form-icons-important">[!]</strong>
+                                    {{--  <i class='bx bx-sm bx-left-arrow-circle form-icons-important'></i> --}}
+                                @endif
+
                                 </td>
+
+                                
+                                
+                                
 
 
 

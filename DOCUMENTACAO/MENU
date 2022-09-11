@@ -56,12 +56,12 @@ CONSULTAR
 
 1. validações
 2. confirmações de exclusão
-3. usabilidade tab/enter
+
 4. informações de Salvo com sucesso
 5. total de registros
 6. definir em modulos (financeiro, pedidos, vendas etc)
 7. criar chave de acesso
-8. usuarios e permissões apos terminar todo modulo de movimento caixa
+8.
 
 
 
@@ -69,7 +69,7 @@ links
 https://bbbootstrap.com/snippets/bootstrap-5-user-dashboard-sidebar-and-table-36966860
 modal dialog multi-step form wizard
 42.7K
-
+https://bbbootstrap.com/snippets/multistep-sign-up-form-validation-and-next-previous-navigation-28979211
 modal dialog form-wizard with arrows transitions
 
 https://bbbootstrap.com/snippets/navigation-bar-search-and-user-icons-83384530

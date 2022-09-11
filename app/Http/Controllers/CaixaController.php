@@ -50,79 +50,33 @@ class CaixaController extends Controller
 
     public function edit(Movimento $movimentos, Request $request)
     {
-        if (!$request->id) throw new \Exception("ID não informado!", 1);
-        $movimentos = Movimento::find($request->id);
-        return view('caixas.edit', ['movimentos' => $movimentos]);
+     
     }
 
     public function update(Movimento $movimentos, Request $request)
     {
-        $data = collect([]);
-        $data = $data->merge([
-            "descricao"       => trim($request->descricao),
-            "status"          => trim($request->status),
-            "tipo"          => trim($request->tipo)
-        ]);
-        Movimento::find($request->id)->update($data->all());
-
-        $movimentos = Movimento::with(['fluxo', 'centro', 'conta'])
-            ->orderBy('data', 'DESC')
-            ->get();
-        $fluxos  = Fluxo::all();
-        $centros = Centro::all();
-        $contas  = Conta::all();
-        return view('caixas.index', compact('movimentos', 'contas', 'centros', 'fluxos'));
+  
     }
 
     public function store(Movimento $movimentos, Request $request)
     {
 
-        $movimentos->data = $request['data'];
-        $movimentos->tipo = $request['tipo'];
-        $movimentos->conta_id = $request['conta_id'];
-        $movimentos->centro_id = $request['centro_id'];
-        $movimentos->fluxo_id = $request['fluxo_id'];
-        $movimentos->user_id = $request['user_id'];
-        $movimentos->titulo_id = $request['titulo_id'];
-        $movimentos->nrdoc = $request['nrdoc'];
-        $movimentos->descricao = $request['descricao'];
-        $movimentos->valor = $request['valor'];
-        $movimentos->destacar = $request['destacar'];
-        $movimentos->obs = $request['obs'];
-
-        $movimentos->save();
-        $movimentos = Movimento::with(['fluxo', 'centro', 'conta'])
-            ->orderBy('data', 'DESC')
-            ->get();
-        $fluxos  = Fluxo::all();
-        $centros = Centro::all();
-        $contas  = Conta::all();
-
-        return view('caixas.index', compact('movimentos', 'contas', 'centros', 'fluxos'));
+     
     }
 
     public function destroy(Request $request)
     {
 
-        if (!$request->id) throw new \Exception("ID não informado!", 1);
-        $movimentos = Movimento::find($request->id)->delete();
-        $movimentos = Movimento::all();
-        return view('caixas.index', ['movimentos' => $movimentos]);
     }
 
     public function details(Movimento $movimentos, Request $request)
     {
-        if (!$request->id) throw new \Exception("ID não informado!", 1);
-        $movimentos = Movimento::find($request->id);
-        return view('caixas.details', ['movimentos' => $movimentos]);
+   
     }
 
     public function search(Movimento $movimentos, Request $request)
     {
-
         $query = Movimento::with(['fluxo', 'centro', 'conta']);
-
-
         if ($request['data-inicio'] && $request['data-fim']) {
 
             $query->whereBetween('data', [date($request['data-inicio']), date($request['data-fim'])]);
@@ -160,10 +114,8 @@ class CaixaController extends Controller
         $movimentos = $query->orderBy('data', 'asc')
             ->get();
 
-
         //dd($query->toSql());
 
-        $saldos = collect([]);
         $saldoAnterior = 0;
         $saldo = 0;
         $valor = 0;
