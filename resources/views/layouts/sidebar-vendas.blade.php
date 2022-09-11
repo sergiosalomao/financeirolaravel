@@ -1,4 +1,4 @@
-<div style="position:absolute;">
+<div style="position:absolute; z-index:100">
     <div class="collapse collapse-horizontal" id="collapseVenda">
 
         <div class="card-submenu text-center ">

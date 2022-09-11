@@ -1,4 +1,4 @@
-<div style="position:absolute;">
+<div style="position:absolute; z-index:100">
     <div class="collapse collapse-horizontal" id="collapseLancamento">
 
         <div class="card-submenu text-center ">
@@ -16,7 +16,7 @@
             <div class=" item-submenu d-flex flex-row align-items-center icon">
                 {{-- <img src="https://img.icons8.com/fluent/96/000000/natural-food.png" width="30" /> --}}
                 <div class="">
-                    <a href="">
+                    <a href="{{ route('movimentos.manager') }}">
                         <h4 class="mb-0">Cancelar Lançamento</h4>
                     </a>
                     <p>Excluir um movimento do caixa</p>

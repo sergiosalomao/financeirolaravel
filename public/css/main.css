@@ -334,11 +334,11 @@ html, body {
 
 
 footer{
-    font-size: smaller;
-    position: absolute;
+    font-size: small;
+    position: relative;
     bottom: 0;
     color: var(--fundo-selecionado);
     width: 90%;
     text-align: center;
-    line-height: 50px;
+    line-height: 40px;
 }

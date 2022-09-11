@@ -30,7 +30,7 @@ class MovimentoRequest extends FormRequest
             'centro_id' => 'required',
             'fluxo_id' => 'required',
             'descricao' => 'required',
-            'nrdoc' => 'unique:movimentos',
+          
             'valor' => 'required',
             
 
@@ -47,7 +47,7 @@ class MovimentoRequest extends FormRequest
             'centro_id.required' => 'Informe qual a o centro de custo do lançamento.',
             'fluxo_id.required' => 'Informe qual a o fluxo do lançamento.',
             'descricao.required' => 'Descricao é obrigatoria',
-            'nrdoc.unique' => 'este numero de documento ja foi cadastrado em outro lançamento.',
+         
             'valor.required' => 'Informe o valor',
            
         ];

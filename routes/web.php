@@ -62,6 +62,9 @@ Route::group(['prefix' => 'movimentos'], function() {
     Route::get('/delete/{id}', [MovimentoController::class, 'destroy'])->name('movimentos.delete');
     Route::get('/details/{id}', [MovimentoController::class, 'details'])->name('movimentos.details');
     Route::post('/search', [MovimentoController::class, 'search'])->name('movimentos.search');
+    Route::get('/manager', [MovimentoController::class, 'manager'])->name('movimentos.manager');
+    Route::get('/searchManager', [MovimentoController::class, 'searchManager'])->name('movimentos.searchManager');
+   
 });
 
 
