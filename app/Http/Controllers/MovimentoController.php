@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MovimentoRequest;
 use App\Models\Centro;
 use App\Models\Conta;
 use App\Models\Fluxo;
@@ -16,7 +17,7 @@ class MovimentoController extends Controller
             ->orderBy('data', 'DESC')
             ->get();
 
-          
+
         $saldoAnterior = 0;
         $saldo = 0;
         $valor = 0;
@@ -36,8 +37,6 @@ class MovimentoController extends Controller
         $contas  = Conta::all();
 
         return view('movimentos.index', compact('movimentos', 'contas', 'centros', 'fluxos'));
-
-    
     }
 
     public function create()
@@ -45,15 +44,18 @@ class MovimentoController extends Controller
         $fluxos  = Fluxo::all();
         $centros = Centro::all();
         $contas  = Conta::all();
-
-        return view('movimentos.create', compact('fluxos','contas','centros'));
+       
+        return view('movimentos.create', compact('fluxos', 'contas', 'centros'));
     }
 
     public function edit(Movimento $movimentos, Request $request)
     {
         if (!$request->id) throw new \Exception("ID não informado!", 1);
         $movimentos = Movimento::find($request->id);
-        return view('movimentos.edit', ['movimentos' => $movimentos]);
+        return view('movimentos.edit', [
+            'movimentos' => $movimentos
+        
+        ]);
     }
 
     public function update(Movimento $movimentos, Request $request)
@@ -65,41 +67,45 @@ class MovimentoController extends Controller
             "tipo"          => trim($request->tipo)
         ]);
         Movimento::find($request->id)->update($data->all());
-        
+
         $movimentos = Movimento::with(['fluxo', 'centro', 'conta'])
-        ->orderBy('data', 'DESC')
-        ->get();
+            ->orderBy('data', 'DESC')
+            ->get();
         $fluxos  = Fluxo::all();
         $centros = Centro::all();
         $contas  = Conta::all();
-        return view('movimentos.index', compact('movimentos','contas','centros','fluxos'));
+        return view('movimentos.index', compact('movimentos', 'contas', 'centros', 'fluxos'))>with('successMsg','Registro alterado com sucesso!');
     }
 
-    public function store(Movimento $movimentos, Request $request)
+    public function store(Movimento $movimentos, MovimentoRequest $request, Fluxo $fluxo)
     {
-        
-        $movimentos->data = $request['data'];
-        $movimentos->tipo = $request['tipo'];
-        $movimentos->conta_id = $request['conta_id'];
-        $movimentos->centro_id = $request['centro_id'];
-        $movimentos->fluxo_id = $request['fluxo_id'];
-        $movimentos->user_id = $request['user_id'];
-        $movimentos->titulo_id = $request['titulo_id'];
-        $movimentos->nrdoc = $request['nrdoc'];
-        $movimentos->descricao = $request['descricao'];
-        $movimentos->valor = $request['valor'];
-        $movimentos->destacar = $request['destacar'];
-        $movimentos->obs = $request['obs'];
+        try {
+            $fluxo = Fluxo::find($request['fluxo_id']);
+            $movimentos->data = $request['data'];
+            $movimentos->tipo = $fluxo->tipo;
+            $movimentos->conta_id = $request['conta_id'];
+            $movimentos->centro_id = $request['centro_id'];
+            $movimentos->fluxo_id = $request['fluxo_id'];
+            $movimentos->user_id = $request['user_id'];
+            $movimentos->titulo_id = $request['titulo_id'];
+            $movimentos->nrdoc = $request['nrdoc'];
+            $movimentos->descricao = $request['descricao'];
+            $movimentos->valor = $request['valor'];
+            $movimentos->destacar = $request['destacar'];
+            $movimentos->obs = $request['obs'];
+            $retorno = $movimentos->save();
 
-        $movimentos->save();
-        $movimentos = Movimento::with(['fluxo', 'centro', 'conta'])
-        ->orderBy('data', 'DESC')
-        ->get();
-        $fluxos  = Fluxo::all();
-        $centros = Centro::all();
-        $contas  = Conta::all();
+            $fluxos  = Fluxo::all();
+            $centros = Centro::all();
+            $contas  = Conta::all();
+            return view('movimentos.create', compact('contas', 'centros', 'fluxos', 'retorno'))->with('successMsg','Registro salvo com sucesso!');
 
-    return view('caixas.index', compact('movimentos','contas','centros','fluxos'));
+        } catch (\Exception $e) {
+            return $retorno = $e;
+        }
+
+
+    
     }
 
     public function destroy(Request $request)
@@ -108,7 +114,7 @@ class MovimentoController extends Controller
         if (!$request->id) throw new \Exception("ID não informado!", 1);
         $movimentos = Movimento::find($request->id)->delete();
         $movimentos = Movimento::all();
-        return view('movimentos.index', ['movimentos' => $movimentos]);
+        return view('movimentos.index', ['movimentos' => $movimentos])->with('successMsg','Registro excluido com sucesso!');;
     }
 
     public function details(Movimento $movimentos, Request $request)
@@ -120,7 +126,7 @@ class MovimentoController extends Controller
 
     public function search(Movimento $movimentos, Request $request)
     {
-        
+
         $query = Movimento::with(['fluxo', 'centro', 'conta']);
 
 
@@ -136,6 +142,10 @@ class MovimentoController extends Controller
 
         if ($request['fluxo_id']) {
             $query->where('fluxo_id', $request['fluxo_id']);
+        }
+
+        if ($request['centro_id']) {
+            $query->where('centro_id', $request['centro_id']);
         }
 
         if ($request['tipo']) {
@@ -164,7 +174,7 @@ class MovimentoController extends Controller
 
         //dd($query->toSql());
 
-   
+
         $saldoAnterior = 0;
         $saldo = 0;
         $valor = 0;
@@ -184,7 +194,5 @@ class MovimentoController extends Controller
         $contas  = Conta::all();
 
         return view('movimentos.index', compact('movimentos', 'contas', 'centros', 'fluxos'));
-
-     
     }
 }

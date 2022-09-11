@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CentroRequest;
 use App\Models\Centro;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class CentroController extends Controller
         return view('centros.edit', ['centros' => $centros]);
     }
 
-    public function update(Centro $centros, Request $request)
+    public function update(Centro $centros, CentroRequest $request)
     {
         $data = collect([]);
         $data = $data->merge([
@@ -34,16 +35,16 @@ class CentroController extends Controller
         ]);
         Centro::find($request->id)->update($data->all());
         $centros = Centro::all();
-        return view('centros.index', ['centros' => $centros]);
+        return view('centros.index', ['centros' => $centros])->with('successMsg','Registro alterado com sucesso!');
     }
 
-    public function store(Centro $centros, Request $request)
+    public function store(Centro $centros, CentroRequest $request)
     {
         $centros->descricao = $request['descricao'];
         $centros->status = $request['status'];
         $centros->save();
         $centros = Centro::all();
-        return view('centros.index', ['centros' => $centros]);
+        return view('centros.index', ['centros' => $centros])->with('successMsg','Registro salvo com sucesso!');
     }
 
     public function destroy(Request $request)
@@ -52,7 +53,7 @@ class CentroController extends Controller
         if (!$request->id) throw new \Exception("ID não informado!", 1);
         $centros = Centro::find($request->id)->delete();
         $centros = Centro::all();
-        return view('centros.index', ['centros' => $centros]);
+        return view('centros.index', ['centros' => $centros])->with('successMsg','Registro excluido com sucesso!');
     }
 
     public function details(Centro $centros, Request $request)

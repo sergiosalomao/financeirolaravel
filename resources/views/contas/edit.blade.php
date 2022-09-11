@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <link rel="stylesheet" href="/css/forms.css">
+
 
     <div class="card painel">
         <div class="card-header titulo-form">
@@ -15,15 +15,21 @@
             <div class="row mt-4">
                 <div class="col-md-6">
                     <label class="labels-form">Conta</label>
-                    <input name="descricao" type="text" class="form-control form-control-sm" placeholder="digite a conta" value="{{ $contas->descricao }}">
+                    <input id="1" name="descricao" type="text" class="form-control form-control-sm" placeholder="digite a conta" value="{{ $contas->descricao }}">
+                    @error('descricao')
+                    <span class="form-label-error"> {{ $message }}</span>
+                @enderror
                 </div>
 
                 <div class="col-md-6"><label class="labels-form">Status</label>
-                    <select name="status" type="text" class="form-select form-select-sm" >
+                    <select id="2" name="status" type="text" class="form-select form-select-sm" >
                         <option value="{{ $contas->status }}" selected>{{ $contas->status }}</option>
                         <option value="ATIVO">ATIVO</option>
                         <option value="INATIVO">INATIVO</option>
                     </select>
+                    @error('status')
+                    <span class="form-label-error"> {{ $message }}</span>
+                @enderror
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">

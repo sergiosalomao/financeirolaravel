@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <link rel="stylesheet" href="/css/forms.css">
+  
 
     <div class="card painel">
         <div class="card-header titulo-form">
@@ -14,13 +14,13 @@
                 <div class="row mt-4">
                     <div class="col-md-6">
                         <label class="labels-form">Centro de Custo</label>
-                        <input name="descricao" type="text" class="form-control" placeholder="digite o centro de custo"
+                        <input id="1" name="descricao" type="text" class="form-control form-control-sm" placeholder="digite o centro de custo"
                             value="{{ $centros->descricao }}" disabled>
                             <input name="id" value="{{ $centros->id }}" hidden>
                     </div>
 
                     <div class="col-md-6"><label class="labels-form">Status</label>
-                        <select name="status" type="text" class="form-select" disabled>
+                        <select id="2" name="status" type="text" class="form-select form-select-sm" disabled>
                             <option value="{{ $centros->status }}" selected>{{ $centros->status }}</option>
                             <option value="Ativo">ATIVO</option>
                             <option value="Inativo">INATIVO</option>

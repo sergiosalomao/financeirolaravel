@@ -11,14 +11,20 @@
 
     {{-- Styles --}}
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet" type="application/json">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" 
+     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/forms.css">
 
-
+    {{-- Jquery --}}
+    <script src="https://code.jquery.com/jquery-3.6.1.js" type="text/javascript" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+ 
     {{-- JavaScript --}}
     <script src="/js/main.js"></script>
     <script src="/js/forms.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <title>SisLoja - Organize suas vendas</title>
 </head>
@@ -33,6 +39,7 @@
 
     {{-- Conteudo --}}
     <div class="container">
+        @include('layouts.flash-message')
         @yield('content')
        
     </div>

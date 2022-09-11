@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FluxoRequest;
 use App\Models\Fluxo;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class FluxoController extends Controller
         return view('fluxos.edit', ['fluxos' => $fluxos]);
     }
 
-    public function update(Fluxo $fluxos, Request $request)
+    public function update(Fluxo $fluxos, FluxoRequest $request)
     {
         $data = collect([]);
         $data = $data->merge([
@@ -35,17 +36,17 @@ class FluxoController extends Controller
         ]);
         Fluxo::find($request->id)->update($data->all());
         $fluxos = Fluxo::all();
-        return view('fluxos.index', ['fluxos' => $fluxos]);
+        return view('fluxos.index', ['fluxos' => $fluxos])->with('successMsg','Registro alterado com sucesso!');;
     }
 
-    public function store(Fluxo $fluxos, Request $request)
+    public function store(Fluxo $fluxos, FluxoRequest $request)
     {
         $fluxos->descricao = $request['descricao'];
         $fluxos->status = $request['status'];
         $fluxos->tipo = $request['tipo'];
         $fluxos->save();
         $fluxos = Fluxo::all();
-        return view('fluxos.index', ['fluxos' => $fluxos]);
+        return view('fluxos.index', ['fluxos' => $fluxos])->with('successMsg','Registro salvo com sucesso!');;
     }
 
     public function destroy(Request $request)
@@ -54,7 +55,7 @@ class FluxoController extends Controller
         if (!$request->id) throw new \Exception("ID não informado!", 1);
         $fluxos = Fluxo::find($request->id)->delete();
         $fluxos = Fluxo::all();
-        return view('fluxos.index', ['fluxos' => $fluxos]);
+        return view('fluxos.index', ['fluxos' => $fluxos])->with('successMsg','Registro excluido com sucesso!');;
     }
 
     public function details(Fluxo $fluxos, Request $request)

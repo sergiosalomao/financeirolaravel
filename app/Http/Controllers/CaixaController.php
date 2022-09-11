@@ -48,31 +48,7 @@ class CaixaController extends Controller
         return view('caixas.create', compact('fluxos', 'contas', 'centros'));
     }
 
-    public function edit(Movimento $movimentos, Request $request)
-    {
-     
-    }
-
-    public function update(Movimento $movimentos, Request $request)
-    {
-  
-    }
-
-    public function store(Movimento $movimentos, Request $request)
-    {
-
-     
-    }
-
-    public function destroy(Request $request)
-    {
-
-    }
-
-    public function details(Movimento $movimentos, Request $request)
-    {
    
-    }
 
     public function search(Movimento $movimentos, Request $request)
     {
@@ -135,7 +111,5 @@ class CaixaController extends Controller
         $contas  = Conta::all();
 
         return view('caixas.index', compact('movimentos', 'contas', 'centros', 'fluxos'));
-
-     
     }
 }

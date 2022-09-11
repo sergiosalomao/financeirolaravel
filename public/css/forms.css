@@ -94,6 +94,10 @@
     color: var(--principal-contraste);
 }
 
+.form-label-error {
+    color: red;
+}
+
 
 .labels-form {
     font-size: 13px;

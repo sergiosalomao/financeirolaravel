@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <link rel="stylesheet" href="/css/forms.css">
+
 
     <div class="card painel">
         <div class="card-header titulo-form">
@@ -101,8 +101,8 @@
                             <th>Descrição</th>
                             <th>Tipo</th>
                             <th>Valor</th>
-                            <th>Saldo</th>
-                            <th></th>
+                            <th style="text-align: right">Saldo</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -134,7 +134,7 @@
                                 <td>
                                     {{ $item->valor }}
                                 </td>
-                                <td colspan="2">
+                                <td colspan="2" style="text-align: right">
                                     <strong>{{ $item->saldo }}</strong>
 
                                     @if ($item->destacar)

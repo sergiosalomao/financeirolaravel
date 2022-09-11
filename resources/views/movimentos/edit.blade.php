@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <link rel="stylesheet" href="/css/forms.css">
+
 
     <div class="card painel">
         <div class="card-header titulo-form">
@@ -13,6 +13,9 @@
                 <div class="col-md-6">
                     <label class="labels-form">Centro de Custo</label>
                     <input name="descricao" type="text" class="form-control" placeholder="digite o centro de custo" value="">
+                    @error('descricao')
+                    <span class="form-label-error"> {{ $message }}</span>
+                @enderror
                 </div>
 
                 <div class="col-md-6"><label class="labels-form">Status</label>
@@ -21,6 +24,9 @@
                         <option value="A">ATIVO</option>
                         <option value="I">INATIVO</option>
                     </select>
+                    @error('status')
+                    <span class="form-label-error"> {{ $message }}</span>
+                @enderror
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">

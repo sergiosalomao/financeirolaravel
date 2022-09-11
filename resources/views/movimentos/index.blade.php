@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <link rel="stylesheet" href="/css/forms.css">
+
 
     <div class="card painel">
         <div class="card-header titulo-form">
@@ -61,7 +61,7 @@
                         <div class="col-md-3">
                             <label class="labels-form">Fluxo</label>
                             <select name="fluxo_id" type="text" class="form-select form-select-sm">
-                                <option value="" selected>Selecione um centro de custo</option>
+                                <option value="" selected>Selecione um fluxo</option>
                                 @foreach ($fluxos as $item)
                                     <option value="{{ $item->id }}">{{ $item->descricao }}</option>
                                 @endforeach
@@ -71,7 +71,16 @@
 
                     </div>
                     <div class="row mt-4">
+                        <div class="col-md-2">
+                            <label class="labels-form">Centro</label>
+                            <select name="centro_id" type="text" class="form-select form-select-sm">
+                                <option value="" selected>Selecione um centro de custo</option>
+                                @foreach ($centros as $item)
+                                    <option value="{{ $item->id }}">{{ $item->descricao }}</option>
+                                @endforeach
 
+                            </select>
+                        </div>
                         <div class="col-md-2">
                             <label class="labels-form">Nr.Doc.</label>
                             <input name="nrdoc" type="text" class="form-control form-control-sm" value="">
@@ -110,7 +119,7 @@
                             <th>Descrição</th>
                             <th>Fluxo</th>
                             <th>Tipo</th>
-                            <th>Valor</th>
+                            <th  style="text-align: right">Valor</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -141,7 +150,7 @@
                                 <td>
                                     <strong>{{ $item->tipo }} </strong>
                                 </td>
-                                <td>
+                                <td  style="text-align: right">
                                     <strong>{{ $item->valor }}</strong>
                                    
                                     @if ($item->destacar)

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContaRequest;
 use App\Models\Conta;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class ContaController extends Controller
         return view('contas.edit', ['contas' => $contas]);
     }
 
-    public function update(Conta $contas, Request $request)
+    public function update(Conta $contas, ContaRequest $request)
     {
         $data = collect([]);
         $data = $data->merge([
@@ -34,16 +35,16 @@ class ContaController extends Controller
         ]);
         Conta::find($request->id)->update($data->all());
         $contas = Conta::all();
-        return view('contas.index', ['contas' => $contas]);
+        return view('contas.index', ['contas' => $contas])->with('successMsg','Registro alterado com sucesso!');
     }
 
-    public function store(Conta $contas, Request $request)
+    public function store(Conta $contas, ContaRequest $request)
     {
         $contas->descricao = $request['descricao'];
         $contas->status = $request['status'];
         $contas->save();
         $contas = Conta::all();
-        return view('contas.index', ['contas' => $contas]);
+        return view('contas.index', ['contas' => $contas])->with('successMsg','Registro salvo com sucesso!');
     }
 
     public function destroy(Request $request)
@@ -52,7 +53,7 @@ class ContaController extends Controller
         if (!$request->id) throw new \Exception("ID não informado!", 1);
         $contas = Conta::find($request->id)->delete();
         $contas = Conta::all();
-        return view('contas.index', ['contas' => $contas]);
+        return view('contas.index', ['contas' => $contas])->with('successMsg','Registro excluido com sucesso!');;
     }
 
     public function details(Conta $contas, Request $request)
