@@ -1,0 +1,79 @@
+MENU DO SISTEMA
+-------------------
+
+DASHBOARD
+VENDAS
+LANÇAMENTOS
+ORDENS SERVIÇOS
+COBRANÇAS
+CLIENTES\FORNECEDORES
+PRODUTOS
+SERVIÇOS
+FUNCIONARIOS
+
+
+SUBMENU VENDA
+--------------
+NOVA VENDA
+CANCELAR VENDA
+CONSULTAR VENDA
+RELATORIO DE VENDAS
+
+SUBMENU ORDENS DE SERVIÇOS
+--------------
+NOVA ORDEM SERVIÇO
+CANCELAR OR. SERVIÇO
+CONSULTAR OR. SERVIÇO
+RELATORIO DE OR. SERVIÇOS
+
+SUBMENU LANÇAMENTOS
+-------------------
+LANÇAMENTO
+CONSULTAR
+RELATORIO
+CANCELAR LANÇAMENTO
+
+COBRANÇAS
+-------------------
+CADASTRAR TITULO
+CONSULTAR TITULOS A PAGAR
+CONSULTAR TITULOS A RECEBER
+BAIXAR TITULOS
+
+FINANCEIRO
+-------------------
+CENTRO CUSTO
+CONTAS
+FLUXOS
+RELATORIOS
+
+
+USUARIOS
+---------
+ADICIONAR
+CONSULTAR
+
+
+1. validações
+2. confirmações de exclusão
+3. usabilidade tab/enter
+4. informações de Salvo com sucesso
+5. total de registros
+6. definir em modulos (financeiro, pedidos, vendas etc)
+7. criar chave de acesso
+8. usuarios e permissões apos terminar todo modulo de movimento caixa
+
+
+
+links
+https://bbbootstrap.com/snippets/bootstrap-5-user-dashboard-sidebar-and-table-36966860
+modal dialog multi-step form wizard
+42.7K
+
+modal dialog form-wizard with arrows transitions
+
+https://bbbootstrap.com/snippets/navigation-bar-search-and-user-icons-83384530
+
+
+
+

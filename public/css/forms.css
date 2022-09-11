@@ -1,0 +1,133 @@
+@import "main.css";
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--principal-focus);
+}
+
+.form-select:focus {
+    box-shadow: none;
+    border-color: var(--principal-focus);
+}
+
+.profile-button {
+    background: var(--principal);
+    box-shadow: none;
+    border: none;
+}
+
+.profile-button:hover {
+    background: var(--third-color);
+}
+
+.profile-button:focus {
+    background: var(--principal-focus);
+    box-shadow: none;
+}
+
+.profile-button:active {
+    background: var(--fundo-selecionado);
+    box-shadow: none;
+}
+
+.profile-button-back:focus {
+    background: var(--first-color);
+    box-shadow: none;
+}
+
+.profile-button-back {
+    background: var(--fundo-selecionado);
+    box-shadow: none;
+    border: none;
+}
+
+.profile-button-back:hover {
+    background: var(--first-color);
+}
+
+
+.profile-button-filter {
+    background: var(--first-color);
+    box-shadow: none;
+    border: none;
+}
+
+.profile-button-filter:active {
+    background: var(--first-color);
+    box-shadow: none;
+}
+
+.profile-button-filter:hover {
+    background: var(--first-color);
+}
+
+
+.form-icons-edit {
+    color: var(--third-color);
+  
+}
+
+.form-icons-delete {
+    color: var(--second-color);
+   
+}
+
+.form-icons-info {
+    color: var(--principal-contraste);
+ 
+}
+
+.form-checkbox {
+    font-size: large;
+    margin-top: 30px;
+}
+
+.form-checkbox-label {
+    margin-top: 32px;
+    margin-left: 10px;
+    color: var(--principal-contraste);
+}
+
+
+.labels-form {
+    font-size: 13px;
+    padding: 2;
+}
+
+.titulo-form {
+    font-weight: 800;
+    margin-left: -8px;
+    font-size: large;
+}
+
+.subtitulo-form {
+    font-weight: 500;
+    margin-left: -2px;
+    font-size: medium;
+}
+
+.painel {
+    border-style: solid;
+    border-color: silver;
+    margin: auto;
+    width: 95%;
+  
+    margin-top: 10%;
+}
+
+.table{
+    font-family: var(--body-font);
+    font-size: small;
+}
+
+#btn_pesquisar{
+    margin-top: 19px;
+   
+    width: 150px;
+}
+
+.filter-panel {
+    margin: auto;
+    width: 100%;
+    
+}
