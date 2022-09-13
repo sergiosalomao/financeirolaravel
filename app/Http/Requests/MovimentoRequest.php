@@ -25,15 +25,12 @@ class MovimentoRequest extends FormRequest
     {
         return [
             'data' => 'required',
-          
             'conta_id' => 'required',
             'centro_id' => 'required',
             'fluxo_id' => 'required',
-            'descricao' => 'required',
-          
+            'descricao' => 'required|max:80',
+            'nrdoc'=> 'max:15',
             'valor' => 'required',
-            
-
         ];
     }
 
@@ -41,15 +38,11 @@ class MovimentoRequest extends FormRequest
     {
         return [
             'data.required' => 'Informe a data do movimento.',
-          
-         
             'conta_id.required' => 'Informe qual a conta do lançamento.',
             'centro_id.required' => 'Informe qual a o centro de custo do lançamento.',
             'fluxo_id.required' => 'Informe qual a o fluxo do lançamento.',
             'descricao.required' => 'Descricao é obrigatoria',
-         
             'valor.required' => 'Informe o valor',
-           
         ];
     }
 }

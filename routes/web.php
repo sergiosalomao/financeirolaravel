@@ -61,7 +61,8 @@ Route::group(['prefix' => 'movimentos'], function() {
     Route::post('/update', [MovimentoController::class, 'update'])->name('movimentos.update');
     Route::get('/delete/{id}', [MovimentoController::class, 'destroy'])->name('movimentos.delete');
     Route::get('/details/{id}', [MovimentoController::class, 'details'])->name('movimentos.details');
-    Route::post('/search', [MovimentoController::class, 'search'])->name('movimentos.search');
+    Route::get('/search', [MovimentoController::class, 'search'])->name('movimentos.search');
+   
     Route::get('/manager', [MovimentoController::class, 'manager'])->name('movimentos.manager');
     Route::get('/searchManager', [MovimentoController::class, 'searchManager'])->name('movimentos.searchManager');
    
@@ -76,7 +77,7 @@ Route::group(['prefix' => 'caixas'], function() {
     Route::post('/update', [CaixaController::class, 'update'])->name('caixas.update');
     Route::get('/delete/{id}', [CaixaController::class, 'destroy'])->name('caixas.delete');
     Route::get('/details/{id}', [CaixaController::class, 'details'])->name('caixas.details');
-    Route::post('/search', [CaixaController::class, 'search'])->name('caixas.search');
+    Route::get('/search', [CaixaController::class, 'search'])->name('caixas.search');
 });
 
 

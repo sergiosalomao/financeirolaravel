@@ -9,7 +9,7 @@
 
         <div class="card-body">
 
-            <button class="btn btn-sm btn-primary profile-button" type="button"
+            <button class="btn btn-sm btn-primary form-button" type="button"
                 onclick="window.location.href='/centros/create'">Adicionar</button>
 
 
@@ -53,8 +53,12 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{-- PAGINAÇÃO --}}
+                <div class="d-flex justify-content-center">
+                  {{ $centros->links() }}
+              </div>
                 <div style="text-align: right">
-                    <button class="btn btn-primary btn-sm profile-button-back" type="button"
+                    <button class="btn btn-primary btn-sm form-button-back" type="button"
                         onclick="window.location.href='/'">Fechar</button>
                 </div>
 

@@ -9,10 +9,10 @@
 
         <div class="card-body">
 
-            <button class="btn btn-sm btn-primary profile-button" type="button"
+            <button class="btn btn-sm btn-primary form-button" type="button"
                 onclick="window.location.href='/movimentos/create'">Adicionar</button>
 
-                <button class="btn btn-sm btn-primary  profile-button-back profile-button-filter" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
+                <button class="btn btn-sm btn-primary  form-button-back form-button-filter" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
                    Filtros
                   </button>
                
@@ -21,7 +21,7 @@
             {{-- Filtros --}}
           
             <div class="collapse filter-panel" id="collapseFilter">
-                <form action="{{ route('movimentos.search') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('movimentos.search') }}" method="GET" enctype="multipart/form-data">
                   @csrf 
                     <div class="card mb-3 mt-3">
                 <div class="card-header">
@@ -95,7 +95,7 @@
                         </div>
                         
                         <div class="col-md-2">
-                            <button id="btn_pesquisar" class="btn btn-sm btn-primary profile-button-filter" type="submit">Pesquisar</button>
+                            <button id="btn_pesquisar" class="btn btn-sm btn-primary form-button-filter" type="submit">Pesquisar</button>
                         </div>
                     </div>
                 </div>
@@ -164,11 +164,22 @@
                             </tr>
                         @endforeach
 
+                        
 
                     </tbody>
+
+                 
+
+
                 </table>
+               
+                {{-- PAGINAÇÃO --}}
+                <div class="d-flex justify-content-center">
+                    {{ $movimentos->links() }}
+                </div>
+                   
                 <div style="text-align: right">
-                    <button class="btn btn-sm btn-primary profile-button-back" type="button"
+                    <button class="btn btn-sm btn-primary form-button-back" type="button"
                         onclick="window.location.href='/'">Fechar</button>
                 </div>
 

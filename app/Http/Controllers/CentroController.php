@@ -10,7 +10,7 @@ class CentroController extends Controller
 {
     public function index(Centro $centros)
     {
-        $centros = Centro::all();
+        $centros = Centro::paginate(15);
         return view('centros.index', compact('centros'));
     }
 
@@ -34,7 +34,7 @@ class CentroController extends Controller
             "status"          => trim($request->status)
         ]);
         Centro::find($request->id)->update($data->all());
-        $centros = Centro::all();
+        $centros = Centro::paginate(15);
         return view('centros.index', ['centros' => $centros])->with('successMsg','Registro alterado com sucesso!');
     }
 
@@ -43,7 +43,7 @@ class CentroController extends Controller
         $centros->descricao = $request['descricao'];
         $centros->status = $request['status'];
         $centros->save();
-        $centros = Centro::all();
+        $centros = Centro::paginate(15);
         return view('centros.index', ['centros' => $centros])->with('successMsg','Registro salvo com sucesso!');
     }
 
@@ -52,7 +52,7 @@ class CentroController extends Controller
 
         if (!$request->id) throw new \Exception("ID não informado!", 1);
         $centros = Centro::find($request->id)->delete();
-        $centros = Centro::all();
+        $centros = Centro::paginate(15);
         return view('centros.index', ['centros' => $centros])->with('successMsg','Registro excluido com sucesso!');
     }
 

@@ -43,8 +43,8 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <button class="btn btn-sm btn-primary profile-button-back" type="button" onclick="window.location.href='/fluxos'">Fechar</button>
-                        <button class="btn btn-sm btn-primary profile-button" type="submit">Gravar</button>
+                        <button class="btn btn-sm btn-primary form-button" type="submit">Gravar</button>
+                        <button class="btn btn-sm btn-primary form-button-back" type="button" onclick="window.location.href='/fluxos'">Fechar</button>
                     </div>
                 </div>
             </div>

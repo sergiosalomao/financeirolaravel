@@ -21,4 +21,55 @@ class Movimento extends Model
     public function conta(){
         return $this->belongsTo(Conta::class, 'conta_id', 'id');
     }
+
+
+    public function calculaSaldo($movimentos)
+    {
+        $saldoAnterior = 0;
+        $saldo = 0;
+        $valor = 0;
+        foreach ($movimentos as $key => $item) {
+            if ($item->tipo ==  'DEBITO') $valor = -$item->valor;
+            $movimentos[$key]->saldo = $saldoAnterior + $valor;
+            if ($item->tipo ==  'CREDITO') $valor = $item->valor;
+            $movimentos[$key]->saldo = $saldoAnterior + $valor;
+            $saldoAnterior = $movimentos[$key]->saldo;
+            $item->valor =  number_format($item->valor, 2,'.','');
+            $item->saldo = number_format($item->saldo, 2,'.','');
+        }
+        return $movimentos;
+    }
+
+    public function filtros($query, $request){
+        if ($request['data-inicio'] && $request['data-fim']) {
+            $query->whereBetween('data', [date($request['data-inicio']), date($request['data-fim'])]);
+        }
+        if ($request['conta_id']) {
+            $query->where('conta_id', $request['conta_id']);
+        }
+        if ($request['fluxo_id']) {
+            $query->where('fluxo_id', $request['fluxo_id']);
+        }
+        if ($request['centro_id']) {
+            $query->where('centro_id', $request['centro_id']);
+        }
+        if ($request['tipo']) {
+
+            $query->where('tipo', $request['tipo']);
+        }
+        if ($request['nrdoc']) {
+
+            $query->where('nrdoc', 'LIKE', '%' . $request['nrdoc'] . '%');
+        }
+        if ($request['descricao']) {
+
+            $query->where('descricao', 'ILIKE', '%' . $request['descricao'] . '%');
+        }
+        if ($request['valor']) {
+
+            $query->where('valor', $request['valor']);
+        }
+        return $query->orderBy('data', 'asc')->paginate(10);
+        //dd($query->toSql());
+    }
 }

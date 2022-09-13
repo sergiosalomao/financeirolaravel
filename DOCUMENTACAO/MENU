@@ -63,6 +63,18 @@ CONSULTAR
 7. criar chave de acesso
 8.
 
+Info ao salvar
+paginacao
+tela de cancelamento e edicao de movimento
+retorno com json
+estudar como usar o begintransaction
+
+
+problemas de usabilidades detectados
+to tendo que usar muito o mouse pra adicionar novo e salvar o focus nao vai para os botoes
+
+
+
 
 
 links
@@ -73,7 +85,6 @@ https://bbbootstrap.com/snippets/multistep-sign-up-form-validation-and-next-prev
 modal dialog form-wizard with arrows transitions
 
 https://bbbootstrap.com/snippets/navigation-bar-search-and-user-icons-83384530
-
 
 
 

@@ -13,10 +13,9 @@ $(document).ready(function () {
     });
 
     /* Adicionar focus no primeiro elemento */
-
     document.getElementById(1).focus();
 
-
+    $(".numeric").numeric({ decimal : ".",  negative : false, scale: 3 });
 
 });
 

@@ -2,37 +2,26 @@
 
 :root {
 
-/*     --cor-botao-secundario: #1F2937; 
-    --cor-terceira: #FD0010;
+    --cor-primeira: #F9A11A;
     --cor-principal-clara: #FBC62B;
-    --cor-fundo: silver;
-    --cor-principal: #F9A11A;
-    --cor-contraste: #2E76BB;
     --cor-principal-escura: #eca138;
-    --cor-botao-secundario-selecionado: gray;
+    --cor-segunda: #1F2937; 
+    --cor-segunda-clara: gray;
+    --cor-terceira: #FD0010;
+    --cor-quarta: #2E76BB;
+    --cor-fundo: gray;  
+    --cor-fundo-light: silver;
+    --cor-fundo-body: rgb(236, 236, 236);
+    --cor-menu-selecionado:rgb(8, 86, 105);
+ 
 
-
- */
-
-    --header-height: 54px;
-    --nav-width: 68px;
-    --first-color: #1F2937;
-    --second-color: #FD0010;
-    --third-color:#FBC62B;
-    --fundo-light: silver;
-    --principal: #F9A11A;
-    --principal-contraste: #2E76BB;
-    --principal-focus: #eca138;
-    --fundo-selecionado: gray;
-
+    
     --body-font: 'Nunito', sans-serif;
     --normal-font-size: 13px;
     --z-fixed: 100;
-    --fundo-body: rgb(236, 236, 236);
+    --header-height: 54px;
+    --nav-width: 68px;
 }
-
-
-
 
 
 *,
@@ -56,23 +45,23 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background-color: var(--first-color);
+    background-color: var(--cor-segunda);
     z-index: var(--z-fixed);
     transition: .1s;
 
 }
 
 .header_toggle {
-    
+
     font-size: 1.5rem;
     cursor: pointer;
     font-family: var(--body-font);
-    color: var(--fundo-light);
-    
+    color: var(--cor-fundo-light);
+
 }
 
-#titulo{
-    color: var(--principal);
+#titulo {
+    color: var(--cor-primeira);
     font-size: medium;
     margin-top: -10px;
     font-weight: 700;
@@ -97,7 +86,7 @@ a {
     left: -30%;
     width: var(--nav-width);
     height: 100vh;
-    background-color: var(--first-color);
+    background-color: var(--cor-segunda);
     padding: .2rem 1rem 0 0;
     transition: .1s;
     z-index: var(--z-fixed)
@@ -126,23 +115,23 @@ a {
 
 .nav_logo-icon {
     font-size: 1.25rem;
-    color: var(--principal)
+    color: var(--cor-primeira)
 }
 
 .nav_logo-name {
-    color: var(--principal);
+    color: var(--cor-primeira);
     font-weight: 700
 }
 
 .nav_link {
     position: relative;
-    color: var(--fundo-light);
+    color: var(--cor-fundo-light);
     margin-bottom: 1.5rem;
     transition: .1s
 }
 
 .nav_link:hover {
-    color: var(--principal)
+    color: var(--cor-primeira)
 }
 
 .nav_icon {
@@ -155,7 +144,7 @@ a {
 
 
 .active {
-    color: var(--principal)
+    color: var(--cor-primeira)
 }
 
 .active::before {
@@ -164,7 +153,7 @@ a {
     left: 0;
     width: 2px;
     height: 32px;
-    background-color: var(--principal)
+    background-color: var(--cor-primeira)
 }
 
 .height-100 {
@@ -173,13 +162,13 @@ a {
 
 
 body {
- 
+
     margin-left: var(--header-height);
     padding: 0 1rem;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     transition: .1s;
-    background-color: var(--fundo-body);
+    background-color: var(--cor-fundo-body);
     overflow: auto;
     background: #eee;
     margin-top: 60px;
@@ -226,9 +215,6 @@ body {
         overflow: auto;
     }
 
- 
-    
-
 }
 
 
@@ -274,8 +260,8 @@ body {
     }
 
     .header_toggle {
-        color: var(--fundo-light);
-        
+        color: var(--cor-fundo-light);
+
     }
 
 }
@@ -288,7 +274,7 @@ body {
     height: auto;
     border-radius: 1px;
     margin-top: 12px;
-    background-color: var(--first-color);
+    background-color: var(--cor-segunda);
 }
 
 .icon img {
@@ -299,7 +285,6 @@ body {
     margin-left: 30px;
     margin-bottom: 14px;
     padding: 5px;
-
 }
 
 .head {
@@ -311,34 +296,41 @@ p {
     font-size: 10px;
     text-align: left;
     /*margin-top: -8px;*/
-    color: var(--fundo-light);
+    color: var(--cor-fundo-light);
     cursor: pointer;
 }
 
 h4 {
     text-align: left;
     margin: 20px;
-    font-size: 1.0rem;
-    color: var(--principal);
+    font-size: 14px;
+    color: var(--cor-primeira);
 }
 
+
+
+.item-submenu{
+    height: 60px;
+   
+}
+
+
 .item-submenu:hover {
-    background-color: var(--fundo-selecionado);
+    background-color:var(--cor-menu-selecionado);
 }
 
 /* Rodape */
 
-html, body {
-    min-height: 100%;
-}
-
-
-footer{
-    font-size: small;
-    position: relative;
-    bottom: 0;
-    color: var(--fundo-selecionado);
-    width: 90%;
-    text-align: center;
-    line-height: 40px;
-}
+ 
+    footer {
+        font-size: small;
+        position: relative;
+        bottom:0;
+        left:45%;
+        width: 10%;
+     
+        color: var(--fundo-selecionado);
+  
+      
+      
+    }

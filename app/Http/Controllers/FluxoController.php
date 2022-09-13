@@ -10,7 +10,7 @@ class FluxoController extends Controller
 {
     public function index(Fluxo $fluxos)
     {
-        $fluxos = Fluxo::all();
+        $fluxos = Fluxo::paginate(15);;
         return view('fluxos.index', compact('fluxos'));
     }
 
@@ -35,7 +35,7 @@ class FluxoController extends Controller
             "tipo"          => trim($request->tipo)
         ]);
         Fluxo::find($request->id)->update($data->all());
-        $fluxos = Fluxo::all();
+        $fluxos = Fluxo::paginate(15);;
         return view('fluxos.index', ['fluxos' => $fluxos])->with('successMsg','Registro alterado com sucesso!');;
     }
 
@@ -45,7 +45,7 @@ class FluxoController extends Controller
         $fluxos->status = $request['status'];
         $fluxos->tipo = $request['tipo'];
         $fluxos->save();
-        $fluxos = Fluxo::all();
+        $fluxos = Fluxo::paginate(15);;
         return view('fluxos.index', ['fluxos' => $fluxos])->with('successMsg','Registro salvo com sucesso!');;
     }
 
@@ -54,7 +54,7 @@ class FluxoController extends Controller
 
         if (!$request->id) throw new \Exception("ID não informado!", 1);
         $fluxos = Fluxo::find($request->id)->delete();
-        $fluxos = Fluxo::all();
+        $fluxos = Fluxo::paginate(15);;
         return view('fluxos.index', ['fluxos' => $fluxos])->with('successMsg','Registro excluido com sucesso!');;
     }
 

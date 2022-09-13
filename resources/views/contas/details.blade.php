@@ -27,7 +27,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <button class="btn btn-sm btn-primary profile-button-back" type="button"
+                        <button class="btn btn-sm btn-primary form-button-back" type="button"
                         onclick="window.location.href='/contas'">Fechar</button>
                 
                     </div>

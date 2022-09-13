@@ -122,9 +122,9 @@
 
                 <div class="row mt-3">
                     <div class="col-12">
-                        <button id="10" class="btn btn-sm btn-primary profile-button-back" type="button"
-                            onclick="window.location.href='/'">Fechar</button>
-                        <button id="11" class="btn btn-sm btn-primary profile-button" type="submit">Gravar</button>
+                        <button id="10" class="btn btn-sm btn-primary form-button" type="submit">Gravar</button>
+                        <button id="11" class="btn btn-sm btn-primary form-button-back" type="button"
+                            onclick="window.location.href='/movimentos/manager'">Fechar</button>
                     </div>
                 </div>
             </form>

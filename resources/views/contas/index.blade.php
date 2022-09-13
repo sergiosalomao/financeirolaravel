@@ -1,33 +1,31 @@
 @extends('layouts.main')
 @section('content')
-
-
     <div class="card painel">
         <div class="card-header titulo-form">
             Conta
         </div>
 
         <div class="card-body">
-         
-            <button class="btn btn-sm btn-primary profile-button" type="button"  onclick="window.location.href='/contas/create'">Adicionar</button>
-         
-         
-                <div class="table-responsive-sm mt-3">
-                    <table class="table table-sm table-striped table-light text-black table-hover">
-                        <thead>
-                            <tr>
-                               
-                                <th colspan="1">ID</th>
+
+            <button class="btn btn-sm btn-primary form-button" type="button"
+                onclick="window.location.href='/contas/create'">Adicionar</button>
+
+
+            <div class="table-responsive-sm mt-3">
+                <table class="table table-sm table-striped table-light text-black table-hover">
+                    <thead>
+                        <tr>
+                            <th colspan="1">ID</th>
                             <th colspan="2">Conta</th>
                             <th colspan="2">Status</th>
                             <th colspan="2">Data Criação</th>
                             <th colspan="2" style="text-align: center">Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                           
-                           
-                            @foreach ($contas as $item)
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        @foreach ($contas as $item)
                             <tr>
                                 <td>
                                     {{ $item->id }}
@@ -52,15 +50,22 @@
 
                             </tr>
                         @endforeach
-                        </tbody>
-                    </table>
-                    <div style="text-align: right">
-                        <button class="btn btn-sm btn-primary profile-button-back" type="button" onclick="window.location.href='/'">Fechar</button>
-                    </div>
+                    </tbody>
+                  
                     
+                </table>
+                {{-- PAGINAÇÃO --}}
+                <div class="d-flex justify-content-center">
+                    {{ $contas->links() }}
                 </div>
-          
-           
+                <div style="text-align: right">
+                    <button class="btn btn-sm btn-primary form-button-back" type="button"
+                        onclick="window.location.href='/'">Fechar</button>
+                </div>
+
+            </div>
+
+
 
         </div>
     @endsection

@@ -2,85 +2,84 @@
 
 .form-control:focus {
     box-shadow: none;
-    border-color: var(--principal-focus);
+    border-color: var(--cor-principal-clara);
 }
 
 .form-select:focus {
     box-shadow: none;
-    border-color: var(--principal-focus);
+    border-color: var(--cor-principal-escura);
 }
 
-.profile-button {
-    background: var(--principal);
+.form-button {
+    background: var(--cor-primeira);
     box-shadow: none;
     border: none;
 }
 
-.profile-button:hover {
-    background: var(--third-color);
+.form-button:hover {
+    background: var(--cor-principal-clara);
 }
 
-.profile-button:focus {
-    background: var(--principal-focus);
+.form-button:focus {
+    background: var(--cor-principal-escura);
     box-shadow: none;
 }
 
-.profile-button:active {
-    background: var(--fundo-selecionado);
+.form-button:active {
+    background: var(--cor-principal-escura);
     box-shadow: none;
 }
 
-.profile-button-back:focus {
-    background: var(--first-color);
+.form-button-back:focus {
+    background: var(--cor-principal-escura);
     box-shadow: none;
 }
 
-.profile-button-back {
-    background: var(--fundo-selecionado);
-    box-shadow: none;
-    border: none;
-}
-
-.profile-button-back:hover {
-    background: var(--first-color);
-}
-
-
-.profile-button-filter {
-    background: var(--first-color);
+.form-button-back {
+    background: var(--cor-segunda-clara);
     box-shadow: none;
     border: none;
 }
 
-.profile-button-filter:active {
-    background: var(--first-color);
+.form-button-back:hover {
+    background: var(--cor-segunda);
+}
+
+.form-button-filter {
+    background: var(--cor-segunda);
+    box-shadow: none;
+    border: none;
+}
+
+.form-button-filter:active {
+    background: var(--cor-segunda);
     box-shadow: none;
 }
 
-.profile-button-filter:hover {
-    background: var(--first-color);
+.form-button-filter:hover {
+    background: var(--cor-segunda-clara);
 }
 
 
 .form-icons-edit {
-    color: var(--third-color);
-  
+    color: var(--cor-principal-clara);
+
 }
 
 .form-icons-delete {
-    color: var(--second-color);
-   
+    color: var(--cor-terceira);
+
 }
 
 .form-icons-info {
-    color: var(--principal-contraste);
- 
+    color: var(--cor-quarta);
+
 }
 
 .form-icons-important {
     color: red;
     font-size: x-small;
- }
+}
 
 
 .form-checkbox {
@@ -91,7 +90,7 @@
 .form-checkbox-label {
     margin-top: 32px;
     margin-left: 10px;
-    color: var(--principal-contraste);
+    color: var(--cor-segunda);
 }
 
 .form-label-error {
@@ -121,23 +120,25 @@
     border-color: silver;
     margin: auto;
     width: 95%;
-  
     margin-top: 10%;
 }
 
-.table{
+.table {
     font-family: var(--body-font);
-    font-size: small;
+    font-size: smaller;
 }
 
-#btn_pesquisar{
+#btn_pesquisar {
     margin-top: 19px;
-   
+
     width: 150px;
 }
 
 .filter-panel {
     margin: auto;
     width: 100%;
-    
+}
+
+.form-paginate {
+    color: var(--cor-principal-escura);
 }

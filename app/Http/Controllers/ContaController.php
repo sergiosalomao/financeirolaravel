@@ -10,7 +10,7 @@ class ContaController extends Controller
 {
     public function index(Conta $contas)
     {
-        $contas = Conta::all();
+        $contas = Conta::paginate(15);;
         return view('contas.index', compact('contas'));
     }
 
@@ -34,7 +34,7 @@ class ContaController extends Controller
             "status"          => trim($request->status)
         ]);
         Conta::find($request->id)->update($data->all());
-        $contas = Conta::all();
+        $contas = Conta::paginate(15);;
         return view('contas.index', ['contas' => $contas])->with('successMsg','Registro alterado com sucesso!');
     }
 
@@ -43,7 +43,7 @@ class ContaController extends Controller
         $contas->descricao = $request['descricao'];
         $contas->status = $request['status'];
         $contas->save();
-        $contas = Conta::all();
+        $contas = Conta::paginate(15);;
         return view('contas.index', ['contas' => $contas])->with('successMsg','Registro salvo com sucesso!');
     }
 
@@ -52,7 +52,7 @@ class ContaController extends Controller
 
         if (!$request->id) throw new \Exception("ID não informado!", 1);
         $contas = Conta::find($request->id)->delete();
-        $contas = Conta::all();
+        $contas = Conta::paginate(15);;
         return view('contas.index', ['contas' => $contas])->with('successMsg','Registro excluido com sucesso!');;
     }
 
