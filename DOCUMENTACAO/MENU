@@ -54,24 +54,36 @@ ADICIONAR
 CONSULTAR
 
 
-1. validações
 2. confirmações de exclusão
-
-4. informações de Salvo com sucesso
-5. total de registros
 6. definir em modulos (financeiro, pedidos, vendas etc)
 7. criar chave de acesso
-8.
 
-Info ao salvar
-paginacao
-tela de cancelamento e edicao de movimento
-retorno com json
-estudar como usar o begintransaction
+tabela de titulos:
+id
+vencimento
+cedente
+sacado
+valor
+juros
+multa
+pago - true/false
+finalizado(dado baixa) true/false
+tipo - deb /cred 
+deb_conta
+fluxo
+cedente - quem recebe
+sacado - quem paga
+conta_deb_conta - com isso ele baixa automaticamente na data do vencimento
+baixa_automatica - sim/nao
 
 
-problemas de usabilidades detectados
-to tendo que usar muito o mouse pra adicionar novo e salvar o focus nao vai para os botoes
+ideias ao lançar boleto disparar email
+data do vencimento disparar email do boleto a pagar ou receber
+
+extrair pra csv 
+extrair pra pdf
+
+
 
 
 

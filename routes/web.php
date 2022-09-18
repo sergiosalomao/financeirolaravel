@@ -18,11 +18,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {return view('home');});
-Route::get('dashboard', function () {return view('dashboard');});
+Route::get('/', function () {
+    return view('home');
+});
+Route::get('dashboard', function () {
+    return view('dashboard');
+});
 
 
-Route::group(['prefix' => 'centros'], function() {
+Route::group(['prefix' => 'centros'], function () {
     Route::get('/', [CentroController::class, 'index'])->name('centros.index');
     Route::get('/create', [CentroController::class, 'create'])->name('centros.create');
     Route::get('/edit/{id}', [CentroController::class, 'edit'])->name('centros.edit');
@@ -32,7 +36,7 @@ Route::group(['prefix' => 'centros'], function() {
     Route::get('/details/{id}', [CentroController::class, 'details'])->name('centros.details');
 });
 
-Route::group(['prefix' => 'contas'], function() {
+Route::group(['prefix' => 'contas'], function () {
     Route::get('/', [ContaController::class, 'index'])->name('contas.index');
     Route::get('/create', [ContaController::class, 'create'])->name('contas.create');
     Route::get('/edit/{id}', [ContaController::class, 'edit'])->name('contas.edit');
@@ -42,7 +46,7 @@ Route::group(['prefix' => 'contas'], function() {
     Route::get('/details/{id}', [ContaController::class, 'details'])->name('contas.details');
 });
 
-Route::group(['prefix' => 'fluxos'], function() {
+Route::group(['prefix' => 'fluxos'], function () {
     Route::get('/', [FluxoController::class, 'index'])->name('fluxos.index');
     Route::get('/create', [FluxoController::class, 'create'])->name('fluxos.create');
     Route::get('/edit/{id}', [FluxoController::class, 'edit'])->name('fluxos.edit');
@@ -53,7 +57,7 @@ Route::group(['prefix' => 'fluxos'], function() {
 });
 
 
-Route::group(['prefix' => 'movimentos'], function() {
+Route::group(['prefix' => 'movimentos'], function () {
     Route::get('/', [MovimentoController::class, 'index'])->name('movimentos.index');
     Route::get('/create', [MovimentoController::class, 'create'])->name('movimentos.create');
     Route::get('/edit/{id}', [MovimentoController::class, 'edit'])->name('movimentos.edit');
@@ -62,14 +66,13 @@ Route::group(['prefix' => 'movimentos'], function() {
     Route::get('/delete/{id}', [MovimentoController::class, 'destroy'])->name('movimentos.delete');
     Route::get('/details/{id}', [MovimentoController::class, 'details'])->name('movimentos.details');
     Route::get('/search', [MovimentoController::class, 'search'])->name('movimentos.search');
-   
     Route::get('/manager', [MovimentoController::class, 'manager'])->name('movimentos.manager');
     Route::get('/searchManager', [MovimentoController::class, 'searchManager'])->name('movimentos.searchManager');
-   
+    Route::get('/extrairpdf', [MovimentoController::class, 'extrairPdf'])->name('movimentos.extrairpdf');
 });
 
 
-Route::group(['prefix' => 'caixas'], function() {
+Route::group(['prefix' => 'caixas'], function () {
     Route::get('/', [CaixaController::class, 'index'])->name('caixas.index');
     Route::get('/create', [CaixaController::class, 'create'])->name('caixas.create');
     Route::get('/edit/{id}', [CaixaController::class, 'edit'])->name('caixas.edit');
@@ -78,7 +81,5 @@ Route::group(['prefix' => 'caixas'], function() {
     Route::get('/delete/{id}', [CaixaController::class, 'destroy'])->name('caixas.delete');
     Route::get('/details/{id}', [CaixaController::class, 'details'])->name('caixas.details');
     Route::get('/search', [CaixaController::class, 'search'])->name('caixas.search');
+    Route::get('/extrairPdf', [CaixaController::class, 'extrairPdf'])->name('caixas.extrairPdf');
 });
-
-
-

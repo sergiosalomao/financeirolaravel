@@ -7,7 +7,10 @@ use App\Models\Centro;
 use App\Models\Conta;
 use App\Models\Fluxo;
 use App\Models\Movimento;
+
 use Illuminate\Http\Request;
+
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class MovimentoController extends Controller
 {
@@ -15,7 +18,7 @@ class MovimentoController extends Controller
     {
         $movimentos = Movimento::with(['fluxo', 'centro', 'conta'])
             ->orderBy('data', 'DESC')
-            ->paginate(10);
+            ->paginate(env('APP_PAGINATE'));
         $movimento = new Movimento();
         $movimentos = $movimento->calculaSaldo($movimentos);
         $fluxos  = Fluxo::all();
@@ -70,11 +73,12 @@ class MovimentoController extends Controller
         $fluxos  = Fluxo::all();
         $centros = Centro::all();
         $contas  = Conta::all();
-        return view('movimentos.manager', compact('movimentos', 'contas', 'centros', 'fluxos'))->with('successMsg', 'Registro alterado com sucesso!');
+        return view('movimentos.manager', compact('movimentos', 'contas', 'centros', 'fluxos'))->with('message', ['tipo'=>'success','texto'=>'Registro alterado com sucesso!']);;
     }
 
     public function store(Movimento $movimentos, MovimentoRequest $request, Fluxo $fluxo)
     {
+        
         try {
             $fluxo = Fluxo::find($request['fluxo_id']);
             $movimentos->data      = $request['data'];
@@ -94,7 +98,8 @@ class MovimentoController extends Controller
             $fluxos  = Fluxo::all();
             $centros = Centro::all();
             $contas  = Conta::all();
-            return view('movimentos.create', compact('contas', 'centros', 'fluxos'))->with('successMsg', 'Registro salvo com sucesso!');
+         
+            return view('movimentos.create', compact('contas', 'centros', 'fluxos'))->with('message', ['tipo'=>'success','texto'=>'Registro salvo com sucesso!']);;
         } catch (\Exception $e) {
             return $retorno = $e;
         }
@@ -108,7 +113,7 @@ class MovimentoController extends Controller
         $fluxos  = Fluxo::all();
         $centros = Centro::all();
         $contas  = Conta::all();
-        return view('movimentos.manager', compact('contas', 'centros', 'fluxos', 'movimentos'))->with('successMsg', 'Registro excluido com sucesso!');
+        return view('movimentos.manager', compact('contas', 'centros', 'fluxos', 'movimentos'))->with('message', ['tipo'=>'success','texto'=>'Registro excluído com sucesso!']);;
     }
 
     public function details(Movimento $movimentos, Request $request)

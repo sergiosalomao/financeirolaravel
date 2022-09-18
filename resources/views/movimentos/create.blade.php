@@ -5,10 +5,11 @@
             Movimento Caixa
         </div>
 
-        {{-- @foreach ($errors->all() as $error)
+        
+{{--         @foreach ($errors->all() as $error)
             {{ $error }}
-        @endforeach --}}
-
+        @endforeach 
+ --}}
         <div class="card-body">
             <h5 class="card-title subtitulo-form">Cadastrar Dados:</h5>
             <form action="{{ route('movimentos.store') }}" method="POST" enctype="multipart/form-data">
@@ -114,7 +115,7 @@
 
                 <div class="row ">
                     <div class="col-12">
-                        <input id="9" id="check-destacar" class="form-check-input form-checkbox" type="checkbox"
+                        <input  id="check-destacar" class="form-check-input form-checkbox" type="checkbox"
                             value="false" name="destacar">
                         <label class="form-check-label form-checkbox-label">
                             Destacar Movimento no Relatório
@@ -125,7 +126,7 @@
                 <div class="row mt-3">
                     <div class="col-12">
                         <button id="10" class="btn btn-sm btn-primary form-button" type="submit">Gravar</button>
-                        <button id="11" class="btn btn-sm btn-primary form-button-back" type="button"
+                        <button id="10" class="btn btn-sm btn-primary form-button-back" type="button"
                             onclick="window.location.href='/'">Fechar</button>
                     </div>
                 </div>

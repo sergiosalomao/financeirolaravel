@@ -36,3 +36,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
      // Your code to run since DOM is loaded and ready
     });
+
+
+
+    
+      $('html').click(function() {
+        $('#collapseLancamento').collapse('hide');
+        $('#collapseTitulo').collapse('hide');
+        $('#collapseVenda').collapse('hide');
+      });
+
+      

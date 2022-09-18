@@ -50,8 +50,9 @@
                                 <td colspan="3" style="text-align: center;font-size:3px">
                                     <a href="/fluxos/edit/{{ $item->id }}"><i
                                             class='bx bx-sm bx-sm bx-edit form-icons-edit'></i></a>
-                                    <a href="/fluxos/delete/{{ $item->id }}"><i
-                                            class='bx bx-sm bx-sm bx-trash form-icons-delete'></i></a>
+                                            <a onclick="setaDadosModal('window.location.href=\'/fluxos/delete/{{ $item->id }}\'')"
+                                                data-bs-toggle="modal" data-bs-target="#delete-modal"><i
+                                                    class='bx bx-sm bx-sm bx-trash form-icons-delete'></i></a>
                                     <a href="/fluxos/details/{{ $item->id }}"><i
                                             class='bx bx-sm bx-sm bx-info-square form-icons-info'></i></a>
                                 </td>

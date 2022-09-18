@@ -1,7 +1,5 @@
 @extends('layouts.main')
 @section('content')
-
-
     <div class="card painel">
         <div class="card-header titulo-form">
             Centros de Custo
@@ -43,8 +41,10 @@
                                 <td colspan="3" style="text-align: center;font-size:3px">
                                     <a href="/centros/edit/{{ $item->id }}"><i
                                             class='bx bx-sm bx-sm bx-edit form-icons-edit'></i></a>
-                                    <a href="/centros/delete/{{ $item->id }}"><i
+                                    <a onclick="setaDadosModal('window.location.href=\'/centros/delete/{{ $item->id }}\'')"
+                                        data-bs-toggle="modal" data-bs-target="#delete-modal"><i
                                             class='bx bx-sm bx-sm bx-trash form-icons-delete'></i></a>
+
                                     <a href="/centros/details/{{ $item->id }}"><i
                                             class='bx bx-sm bx-sm bx-info-square form-icons-info'></i></a>
                                 </td>
@@ -55,8 +55,8 @@
                 </table>
                 {{-- PAGINAÇÃO --}}
                 <div class="d-flex justify-content-center">
-                  {{ $centros->links() }}
-              </div>
+                    {{ $centros->links() }}
+                </div>
                 <div style="text-align: right">
                     <button class="btn btn-primary btn-sm form-button-back" type="button"
                         onclick="window.location.href='/'">Fechar</button>

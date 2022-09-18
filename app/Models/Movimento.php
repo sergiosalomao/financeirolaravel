@@ -69,7 +69,7 @@ class Movimento extends Model
 
             $query->where('valor', $request['valor']);
         }
-        return $query->orderBy('data', 'asc')->paginate(10);
+        return $query->orderBy('data', 'asc')->paginate(env('APP_PAGINATE'));
         //dd($query->toSql());
     }
 }

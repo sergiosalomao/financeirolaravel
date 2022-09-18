@@ -15,6 +15,8 @@
                 aria-controls="collapseFilter">
                 Filtros
             </button>
+            <button class="btn btn-sm btn-primary form-button" type="button"
+            onclick="window.location.href='{{ route('caixas.extrairPdf') }}'">Extrair PDF</button>
 
 
 

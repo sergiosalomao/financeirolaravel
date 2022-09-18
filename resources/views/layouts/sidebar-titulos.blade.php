@@ -1,5 +1,5 @@
 <div id="teste" style="position:absolute; z-index:100">
-    <div class="collapse collapse-horizontal" id="collapseLancamento">
+    <div class="collapse collapse-horizontal" id="collapseTitulo">
 
         <div class="card-submenu text-center ">
 
@@ -7,7 +7,7 @@
                 {{-- <img src="https://img.icons8.com/cotton/96/000000/steak-rare.png" width="30" /> --}}
                 <div class="">
                     <a href="{{ route('movimentos.create') }}">
-                        <h4 class="mb-0"> Novo Lançamento</h4>
+                        <h4 class="mb-0"> Novo Titulo</h4>
                     </a>
                     <p>Adiciona um movimento no caixa</p>
                 </div>
@@ -18,18 +18,18 @@
                 {{-- <img src="https://img.icons8.com/cotton/96/000000/toast--v1.png" width="30" /> --}}
                 <div class="">
                     <a href="{{ route('caixas.index') }}">
-                        <h4 class="mb-0">Consultar Caixa</h4>
+                        <h4 class="mb-0">Baixar titulo</h4>
                     </a>
-                    <p>Consultar movimento caixa</p>
+                    <p>Realiza a baixa de titulos pagos e recebidos</p>
                 </div>
             </div>
             <div class=" item-submenu d-flex flex-row align-items-center icon">
                 {{-- <img src="https://img.icons8.com/cotton/96/000000/toast--v1.png" width="30" /> --}}
                 <div class="">
                     <a href="{{ route('movimentos.index') }}">
-                        <h4 class="mb-0">Consultar Lançamentos</h4>
+                        <h4 class="mb-0">Consultar titulos</h4>
                     </a>
-                    <p>Consultar movimento Fluxo de Caixa</p>
+                    <p>Consultar contas a pagar e receber</p>
                 </div>
             </div>
 
@@ -40,7 +40,7 @@
 
                         <h4 class="mb-0">Relatorios</h4>
                     </a>
-                    <p>Relatorios de Lançamentos</p>
+                    <p>Relatorios de Titulos</p>
                 </div>
             </div>
           
@@ -48,9 +48,9 @@
                 {{-- <img src="https://img.icons8.com/fluent/96/000000/natural-food.png" width="30" /> --}}
                 <div class="">
                     <a href="{{ route('movimentos.manager') }}">
-                        <h4 class="mb-0">Cancelar Lançamento</h4>
+                        <h4 class="mb-0">Cancelar Titulos</h4>
                     </a>
-                    <p>Excluir um movimento do caixa</p>
+                    <p>Excluir ou editar um titulo</p>
                 </div>
             </div>
             <hr style="color: silver;height:1px">
@@ -60,9 +60,9 @@
                 <div class="">
                     <a href="{{ route('centros.index') }}">
 
-                        <h4 class="mb-0">Centros de Custos</h4>
+                        <h4 class="mb-0">Cadastro de Cedentes</h4>
                     </a>
-                    <p>Voce pode cadastrar varios centros de custos para gerenciar.</p>
+                    <p>Voce pode cadastrar varios cedentes.</p>
                 </div>
             </div>
 
@@ -70,9 +70,9 @@
                 {{-- <img src="https://img.icons8.com/fluent/96/000000/cherry.png" width="30" /> --}}
                 <div class="">
                     <a href="{{ route('contas.index') }}">
-                        <h4 class="mb-0">Contas</h4>
+                        <h4 class="mb-0">Sacado</h4>
                     </a>
-                    <p>Permite cadastrar varias contas para gerenciamento.</p>
+                    <p>Voce pode cadastrar varios sacados.</p>
                 </div>
             </div>
             <div class="item-submenu d-flex flex-row align-items-center icon">

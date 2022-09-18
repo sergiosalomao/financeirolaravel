@@ -1,4 +1,9 @@
 
+ $('#check-destacar').change(function(){
+    cb = $(this);
+    cb.val(cb.prop('checked'));
+});
+
 $(document).ready(function () {
 
     /* TaBToEnter */
@@ -16,8 +21,6 @@ $(document).ready(function () {
     document.getElementById(1).focus();
 
     $(".numeric").numeric({ decimal : ".",  negative : false, scale: 3 });
+   
 
 });
-
-
-

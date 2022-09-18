@@ -1,9 +1,19 @@
 @extends('layouts.main')
 @section('content')
+<!-- Vertically centered modal -->
+{{-- <div class="modal-dialog modal-dialog-centered" id="delete-modal">
+    <h4>Deseja realmente apagar este registro?</h4>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary" onclick="href='/movimentos/delete/'">Apagar</button> 
+  </div> --}}
 
 
-    <div class="card painel">
-        <div class="card-header titulo-form">
+  <div class="card painel">
+       
+  
+ 
+    
+    <div class="card-header titulo-form">
             Movimento Manager - Edite ou Cancele um Movimento
         </div>
 
@@ -162,8 +172,9 @@
                                 <td colspan="3" style="text-align: center;font-size:3px">
                                     <a href="/movimentos/edit/{{ $item->id }}"><i
                                             class='bx bx-sm bx-sm bx-edit form-icons-edit'></i></a>
-                                    <a href="/movimentos/delete/{{ $item->id }}"><i
-                                            class='bx bx-sm bx-sm bx-trash form-icons-delete'></i></a>
+                                            <a onclick="setaDadosModal('window.location.href=\'/movimentos/delete/{{ $item->id }}\'')"
+                                                data-bs-toggle="modal" data-bs-target="#delete-modal"><i
+                                                    class='bx bx-sm bx-sm bx-trash form-icons-delete'></i></a>
                                     <a href="/movimentos/details/{{ $item->id }}"><i
                                             class='bx bx-sm bx-sm bx-info-square form-icons-info'></i></a>
                                 </td>

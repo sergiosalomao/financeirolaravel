@@ -40,7 +40,7 @@
                         <span class="nav_name">Ordens de Serviço</span>
                     </a>
                 </div>
-                <div class="">
+                <div data-bs-toggle="collapse" data-bs-target="#collapseTitulo" aria-expanded="false">
 
                     <a href="#" class="nav_link">
                         <i class='bx bx-sm bx-briefcase nav_icon'></i>
