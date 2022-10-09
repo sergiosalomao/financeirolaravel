@@ -10,7 +10,7 @@ class ContaController extends Controller
 {
     public function index(Conta $contas)
     {
-        $contas = Conta::paginate(15);;
+        $contas = Conta::paginate(env('APP_PAGINATE'));;
         return view('contas.index', compact('contas'));
     }
 
@@ -34,8 +34,8 @@ class ContaController extends Controller
             "status"          => trim($request->status)
         ]);
         Conta::find($request->id)->update($data->all());
-        $contas = Conta::paginate(15);;
-        return view('contas.index', ['contas' => $contas])->with('successMsg','Registro alterado com sucesso!');
+        $contas = Conta::paginate(env('APP_PAGINATE'));;
+        return view('contas.index', ['contas' => $contas])->with('message', ['tipo'=>'success','texto'=>'Registro alterado com sucesso!']);;
     }
 
     public function store(Conta $contas, ContaRequest $request)
@@ -43,8 +43,8 @@ class ContaController extends Controller
         $contas->descricao = $request['descricao'];
         $contas->status = $request['status'];
         $contas->save();
-        $contas = Conta::paginate(15);;
-        return view('contas.index', ['contas' => $contas])->with('successMsg','Registro salvo com sucesso!');
+        $contas = Conta::paginate(env('APP_PAGINATE'));;
+        return view('contas.index', ['contas' => $contas])->with('message', ['tipo'=>'success','texto'=>'Registro salvo com sucesso!']);;
     }
 
     public function destroy(Request $request)
@@ -52,8 +52,8 @@ class ContaController extends Controller
 
         if (!$request->id) throw new \Exception("ID não informado!", 1);
         $contas = Conta::find($request->id)->delete();
-        $contas = Conta::paginate(15);;
-        return view('contas.index', ['contas' => $contas])->with('successMsg','Registro excluido com sucesso!');;
+        $contas = Conta::paginate(env('APP_PAGINATE'));;
+        return view('contas.index', ['contas' => $contas])->with('message', ['tipo'=>'success','texto'=>'Registro excluído com sucesso!']);;
     }
 
     public function details(Conta $contas, Request $request)

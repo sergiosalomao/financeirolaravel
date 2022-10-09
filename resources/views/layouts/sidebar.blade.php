@@ -17,13 +17,13 @@
                     </a>
                 </div>
 
-                <div data-bs-toggle="collapse" data-bs-target="#collapseVenda" aria-expanded="false"
+               {{--  <div data-bs-toggle="collapse" data-bs-target="#collapseVenda" aria-expanded="false"
                     aria-controls="collapseVenda">
                     <a href="#" class="nav_link">
                         <i class='bx bx-sm bx-sm bx-cart nav_icon'></i>
                         <span class="nav_name">Vendas</span>
                     </a>
-                </div>
+                </div> --}}
 
                 <div data-bs-toggle="collapse" data-bs-target="#collapseLancamento" aria-expanded="false"
                     aria-controls="collapseLancamento">
@@ -34,12 +34,12 @@
                 </div>
 
 
-                <div class="">
+               {{--  <div class="">
                     <a href="#" class="nav_link">
                         <i class='bx bx-sm bx-bookmark nav_icon'></i>
                         <span class="nav_name">Ordens de Serviço</span>
                     </a>
-                </div>
+                </div> --}}
                 <div data-bs-toggle="collapse" data-bs-target="#collapseTitulo" aria-expanded="false">
 
                     <a href="#" class="nav_link">
@@ -50,7 +50,7 @@
 
             </div>
 
-            <div class="">
+           {{--  <div class="">
                 <a href="#" class="nav_link">
                     <i class='bx bx-sm bx-male nav_icon'></i>
                     <span class="nav_name">Clientes\Fornecedores</span>
@@ -69,7 +69,7 @@
                     <i class='bx bx-sm bx-run nav_icon'></i>
                     <span class="nav_name">Serviços</span>
                 </a>
-            </div>
+            </div> --}}
 
             <div class="">
                 <a href="#" class="nav_link">

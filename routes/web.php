@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\CaixaController;
+use App\Http\Controllers\CedenteController;
 use App\Http\Controllers\CentroController;
 use App\Http\Controllers\ContaController;
 use App\Http\Controllers\FluxoController;
 use App\Http\Controllers\MovimentoController;
+use App\Http\Controllers\SacadoController;
+use App\Http\Controllers\TituloController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -83,3 +86,40 @@ Route::group(['prefix' => 'caixas'], function () {
     Route::get('/search', [CaixaController::class, 'search'])->name('caixas.search');
     Route::get('/extrairPdf', [CaixaController::class, 'extrairPdf'])->name('caixas.extrairPdf');
 });
+
+Route::group(['prefix' => 'sacados'], function () {
+    Route::get('/', [SacadoController::class, 'index'])->name('sacados.index');
+    Route::get('/create', [SacadoController::class, 'create'])->name('sacados.create');
+    Route::get('/edit/{id}', [SacadoController::class, 'edit'])->name('sacados.edit');
+    Route::post('/store', [SacadoController::class, 'store'])->name('sacados.store');
+    Route::post('/update', [SacadoController::class, 'update'])->name('sacados.update');
+    Route::get('/delete/{id}', [SacadoController::class, 'destroy'])->name('sacados.delete');
+    Route::get('/details/{id}', [SacadoController::class, 'details'])->name('sacados.details');
+});
+
+Route::group(['prefix' => 'cedentes'], function () {
+    Route::get('/', [CedenteController::class, 'index'])->name('cedentes.index');
+    Route::get('/create', [CedenteController::class, 'create'])->name('cedentes.create');
+    Route::get('/edit/{id}', [CedenteController::class, 'edit'])->name('cedentes.edit');
+    Route::post('/store', [CedenteController::class, 'store'])->name('cedentes.store');
+    Route::post('/update', [CedenteController::class, 'update'])->name('cedentes.update');
+    Route::get('/delete/{id}', [CedenteController::class, 'destroy'])->name('cedentes.delete');
+    Route::get('/details/{id}', [CedenteController::class, 'details'])->name('cedentes.details');
+});
+
+
+Route::group(['prefix' => 'titulos'], function () {
+    Route::get('/', [TituloController::class, 'index'])->name('titulos.index');
+    Route::get('/create', [TituloController::class, 'create'])->name('titulos.create');
+    Route::get('/edit/{id}', [TituloController::class, 'edit'])->name('titulos.edit');
+    Route::post('/store', [TituloController::class, 'store'])->name('titulos.store');
+    Route::post('/update', [TituloController::class, 'update'])->name('titulos.update');
+    Route::get('/delete/{id}', [TituloController::class, 'destroy'])->name('titulos.delete');
+    Route::get('/details/{id}', [TituloController::class, 'details'])->name('titulos.details');
+    Route::get('/search', [TituloController::class, 'search'])->name('titulos.search');
+    Route::get('/manager', [TituloController::class, 'manager'])->name('titulos.manager');
+    Route::get('/searchManager', [TituloController::class, 'searchManager'])->name('titulos.searchManager');
+    Route::get('/extrairpdf', [TituloController::class, 'extrairPdf'])->name('titulos.extrairpdf');
+});
+
+

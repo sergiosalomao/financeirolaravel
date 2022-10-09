@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  apache2:
+     image: salomaoleite/laravel:latest
+     restart: always
+     container_name: apache-laravel
+     volumes:
+        - /var/www/html/loja/app/public:/var/www/html/loja/app/public
+     ports:
+       - 9000:9000
+     stdin_open: true
+     tty: true
+
+  postgres:
+    image: salomaoleite/postgresql
+    restart: always
+    environment:
+      POSTGRES_USER: "postgres"      
+      POSTGRES_PASSWORD: "210981"
+    ports:
+      - "5432:5432"
+    volumes:
+      - /servidor/postgresql/data:/var/lib/postgresql/data
+    networks:
+      - rede_docker
+
+  pgadmin:
+    image: salomaoleite/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "salomao.leite@hotmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "210981"
+    ports:
+      - "9001:80"
+    depends_on:
+      - postgres
+    networks:
+      - rede_docker
+
+networks: 
+  rede_docker:
+

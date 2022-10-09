@@ -12,8 +12,8 @@
             <button class="btn btn-sm btn-primary form-button" type="button"
                 onclick="window.location.href='/movimentos/create'">Adicionar</button>
 
-                <button class="btn btn-sm btn-primary  form-button-back form-button-filter" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
-                   Filtros
+                <button  id="btn-filtro" class="btn btn-sm btn-primary  form-button-back form-button-filter" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
+                    Mostrar Filtros
                   </button>
                
 
@@ -25,7 +25,7 @@
                   @csrf 
                     <div class="card mb-3 mt-3">
                 <div class="card-header">
-                    <h6><span class="fa fa-calendar mr-3"></span>Filtros</h6>
+                    <h6><span class="fa fa-calendar mr-3"></span> Filtros</h6>
                 </div>
                
                 <div class="card-body">

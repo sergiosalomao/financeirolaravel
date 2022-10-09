@@ -1,26 +1,16 @@
 @extends('layouts.main')
 @section('content')
-<!-- Vertically centered modal -->
-{{-- <div class="modal-dialog modal-dialog-centered" id="delete-modal">
-    <h4>Deseja realmente apagar este registro?</h4>
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary" onclick="href='/movimentos/delete/'">Apagar</button> 
-  </div> --}}
 
 
-  <div class="card painel">
-       
-  
- 
-    
-    <div class="card-header titulo-form">
-            Movimento Manager - Edite ou Cancele um Movimento
+    <div class="card painel">
+        <div class="card-header titulo-form">
+            Titulos
         </div>
-
+ 
         <div class="card-body">
 
-           {{--  <button class="btn btn-sm btn-primary form-button" type="button"
-                onclick="window.location.href='/movimentos/create'">Adicionar</button> --}}
+            <button class="btn btn-sm btn-primary form-button" type="button"
+                onclick="window.location.href='/movimentos/create'">Adicionar</button>
 
                 <button  id="btn-filtro" class="btn btn-sm btn-primary  form-button-back form-button-filter" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
                     Mostrar Filtros
@@ -31,11 +21,11 @@
             {{-- Filtros --}}
           
             <div class="collapse filter-panel" id="collapseFilter">
-                <form action="{{ route('movimentos.searchManager') }}" method="GET" enctype="multipart/form-data">
+                <form action="{{ route('movimentos.search') }}" method="GET" enctype="multipart/form-data">
                   @csrf 
                     <div class="card mb-3 mt-3">
                 <div class="card-header">
-                    <h6><span class="fa fa-calendar mr-3"></span>Filtros</h6>
+                    <h6><span class="fa fa-calendar mr-3"></span> Filtros</h6>
                 </div>
                
                 <div class="card-body">
@@ -122,25 +112,25 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Data</th>
+                            <th>Vencimento</th>
                             <th>Centro Custo</th>
                             <th>Conta</th>
                             <th>Nr.Doc</th>
                             <th>Descrição</th>
                             <th>Fluxo</th>
                             <th>Tipo</th>
+                            <th>Status</th>
                             <th  style="text-align: right">Valor</th>
-                            <th colspan="2" style="text-align: center">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($movimentos as $item)
+                        @foreach ($titulos as $item)
                             <tr>
                                 <td>
                                     {{ $item->id }}
                                 </td>
                                 <td>
-                                    {{ date('d-m-Y', strtotime($item->data)) }}
+                                    {{ date('d-m-Y', strtotime($item->vencimento)) }}
                                 </td>
 
                                 <td>
@@ -161,6 +151,9 @@
                                 <td>
                                     <strong>{{ $item->tipo }} </strong>
                                 </td>
+                                 <td>
+                                    <strong>{{ $item->status }} </strong>
+                                </td>
                                 <td  style="text-align: right">
                                     <strong>{{ $item->valor }}</strong>
                                    
@@ -169,23 +162,26 @@
                                      {{--  <i class='bx bx-sm bx-left-arrow-circle form-icons-important'></i> --}}
                                  @endif
                                 </td>
-                                <td colspan="3" style="text-align: center;font-size:3px">
-                                    <a href="/movimentos/edit/{{ $item->id }}"><i
-                                            class='bx bx-sm bx-sm bx-edit form-icons-edit'></i></a>
-                                            <a onclick="setaDadosModal('window.location.href=\'/movimentos/delete/{{ $item->id }}\'')"
-                                                data-bs-toggle="modal" data-bs-target="#delete-modal"><i
-                                                    class='bx bx-sm bx-sm bx-trash form-icons-delete'></i></a>
-                                    <a href="/movimentos/details/{{ $item->id }}"><i
-                                            class='bx bx-sm bx-sm bx-info-square form-icons-info'></i></a>
-                                </td>
+
 
 
                             </tr>
                         @endforeach
 
+                        
 
                     </tbody>
+
+                 
+
+
                 </table>
+               
+                {{-- PAGINAÇÃO --}}
+                <div class="d-flex justify-content-center">
+                    {{ $titulos->links() }}
+                </div>
+                   
                 <div style="text-align: right">
                     <button class="btn btn-sm btn-primary form-button-back" type="button"
                         onclick="window.location.href='/'">Fechar</button>

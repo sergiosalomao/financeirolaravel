@@ -25,7 +25,7 @@
 
 
 
-    <title>SisLoja - Organize suas vendas</title>
+    <title>SISMOV - Organize suas finanças</title>
 </head>
 
 <!--SideBar start-->

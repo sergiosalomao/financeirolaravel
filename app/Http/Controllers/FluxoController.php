@@ -10,7 +10,7 @@ class FluxoController extends Controller
 {
     public function index(Fluxo $fluxos)
     {
-        $fluxos = Fluxo::paginate(15);;
+        $fluxos = Fluxo::paginate(env('APP_PAGINATE'));;
         return view('fluxos.index', compact('fluxos'));
     }
 
@@ -35,8 +35,8 @@ class FluxoController extends Controller
             "tipo"          => trim($request->tipo)
         ]);
         Fluxo::find($request->id)->update($data->all());
-        $fluxos = Fluxo::paginate(15);;
-        return view('fluxos.index', ['fluxos' => $fluxos])->with('successMsg','Registro alterado com sucesso!');;
+        $fluxos = Fluxo::paginate(env('APP_PAGINATE'));;
+        return view('fluxos.index', ['fluxos' => $fluxos])->with('message', ['tipo'=>'success','texto'=>'Registro alterado com sucesso!']);;
     }
 
     public function store(Fluxo $fluxos, FluxoRequest $request)
@@ -45,8 +45,8 @@ class FluxoController extends Controller
         $fluxos->status = $request['status'];
         $fluxos->tipo = $request['tipo'];
         $fluxos->save();
-        $fluxos = Fluxo::paginate(15);;
-        return view('fluxos.index', ['fluxos' => $fluxos])->with('successMsg','Registro salvo com sucesso!');;
+        $fluxos = Fluxo::paginate(env('APP_PAGINATE'));;
+        return view('fluxos.index', ['fluxos' => $fluxos])->with('message', ['tipo'=>'success','texto'=>'Registro salvo com sucesso!']);;
     }
 
     public function destroy(Request $request)
@@ -54,8 +54,8 @@ class FluxoController extends Controller
 
         if (!$request->id) throw new \Exception("ID não informado!", 1);
         $fluxos = Fluxo::find($request->id)->delete();
-        $fluxos = Fluxo::paginate(15);;
-        return view('fluxos.index', ['fluxos' => $fluxos])->with('successMsg','Registro excluido com sucesso!');;
+        $fluxos = Fluxo::paginate(env('APP_PAGINATE'));;
+        return view('fluxos.index', ['fluxos' => $fluxos])->with('message', ['tipo'=>'success','texto'=>'Registro excluído com sucesso!']);;
     }
 
     public function details(Fluxo $fluxos, Request $request)

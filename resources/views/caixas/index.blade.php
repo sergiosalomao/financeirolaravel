@@ -10,10 +10,10 @@
             <button class="btn btn-sm btn-primary form-button" type="button"
                 onclick="window.location.href='/movimentos/create'">Adicionar</button>
 
-            <button class="btn btn-sm btn-primary  form-button-back form-button-filter" type="button"
+            <button id="btn-filtro" class="btn btn-sm btn-primary  form-button-back form-button-filter" type="button"
                 data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="true"
                 aria-controls="collapseFilter">
-                Filtros
+                Mostrar Filtros
             </button>
             <button class="btn btn-sm btn-primary form-button" type="button"
             onclick="window.location.href='{{ route('caixas.extrairPdf') }}'">Extrair PDF</button>

@@ -6,10 +6,10 @@
             <div class=" item-submenu d-flex flex-row align-items-center icon">
                 {{-- <img src="https://img.icons8.com/cotton/96/000000/steak-rare.png" width="30" /> --}}
                 <div class="">
-                    <a href="{{ route('movimentos.create') }}">
+                    <a href="{{ route('titulos.create') }}">
                         <h4 class="mb-0"> Novo Titulo</h4>
                     </a>
-                    <p>Adiciona um movimento no caixa</p>
+                    <p>Adiciona nova conta a pagar ou receber</p>
                 </div>
             </div>
 
@@ -58,7 +58,7 @@
             <div class="item-submenu d-flex flex-row align-items-center icon">
                 {{-- <img src="https://img.icons8.com/fluent/96/000000/cherry.png" width="30" /> --}}
                 <div class="">
-                    <a href="{{ route('centros.index') }}">
+                    <a href="{{ route('cedentes.index') }}">
 
                         <h4 class="mb-0">Cadastro de Cedentes</h4>
                     </a>
@@ -69,7 +69,7 @@
             <div class="item-submenu d-flex flex-row align-items-center icon">
                 {{-- <img src="https://img.icons8.com/fluent/96/000000/cherry.png" width="30" /> --}}
                 <div class="">
-                    <a href="{{ route('contas.index') }}">
+                    <a href="{{ route('sacados.index') }}">
                         <h4 class="mb-0">Sacado</h4>
                     </a>
                     <p>Voce pode cadastrar varios sacados.</p>
